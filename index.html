@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RANGKUMAN KHUSUS MABA ILMU KOMUNIKASI 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-container">
+    <div id="reading-progress-bar"></div>
+  </div>
+
+  <!-- Header Navbar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="sidebar-toggle" class="btn-icon" aria-label="Buka Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <span>Menu 📚</span>
+      </button>
+
+      <div class="brand">
+        <span class="brand-badge">ILKOM 2026</span>
+        <h1>RANGKUMAN MABA ILKOM 2026 🎓✨</h1>
+      </div>
+
+      <button id="theme-toggle" class="btn-theme">
+        <span class="theme-icon">🌙</span>
+        <span class="theme-text">Gelap</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Layout Utama (2 Kolom Layout) -->
+  <div class="app-layout">
+    
+    <!-- Sidebar Drawer (Search & TOC) -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title-row">
+          <h2>📌 DAFTAR ISI MATERI</h2>
+          <button id="sidebar-close" class="btn-close-sidebar">&times;</button>
+        </div>
+        <div class="search-box">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="search-input" placeholder="🔍 Cari info (cth: Tuton, Joki, AIDA)..." autocomplete="off">
+          <button id="search-clear" class="btn-clear">&times;</button>
+        </div>
+      </div>
+
+      <nav class="toc-container" id="toc-container">
+        <!-- Render otomatis via app.js -->
+      </nav>
+    </aside>
+
+    <!-- Overlay Mobile Navigation -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Content Area (Kanan) -->
+    <main class="main-content">
+      <div class="welcome-card">
+        <div class="slogan-badge">🚀 HAPPY READ AND LEARN :) 📖✨</div>
+        <h2>INFORMASI PENTING DI GRUP WA ILKOM YAHUT 2026 💬🔥</h2>
+        <p class="welcome-desc">
+          <b>BUAT YANG GA SEMPET BACA SATU-SATU CHAT ATAU INFORMASI YG TERPECAH BELAH DI GRUP WA</b><br>
+          <i>(Udah aku satuin nih, enak tinggal masukkan seputar informasi apa yang ingin kamu cari di kolom pencarian! 🔍⚡)</i>
+        </p>
+      </div>
+
+      <!-- Container Tempat Materi Pembelajaran -->
+      <section class="accordion-wrapper" id="accordion-container">
+        <!-- Content di-render dari content.js -->
+      </section>
+    </main>
+
+  </div>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
