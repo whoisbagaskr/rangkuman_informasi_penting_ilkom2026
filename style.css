@@ -8,18 +8,25 @@
   --accent-color: #38bdf8;
   --accent-light: rgba(56, 189, 248, 0.15);
   --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --alert-bg: rgba(239, 68, 68, 0.15);
+  --alert-border: #ef4444;
+  --alert-text: #fca5a5;
 }
 
+/* Mode Terang dengan kontras tulisan ekstra gelap */
 :root[data-theme="light"] {
   --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
   --bg-glass: rgba(255, 255, 255, 0.95);
-  --border-color: rgba(0, 0, 0, 0.08);
-  --text-primary: #0f172a;
-  --text-secondary: #64748b;
+  --border-color: rgba(0, 0, 0, 0.12);
+  --text-primary: #020617; /* Sangat pekat & tegas */
+  --text-secondary: #334155; /* Gelap kontras */
   --accent-color: #0284c7;
-  --accent-light: rgba(2, 132, 199, 0.1);
-  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --accent-light: rgba(2, 132, 199, 0.12);
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --alert-bg: #fef2f2;
+  --alert-border: #dc2626;
+  --alert-text: #991b1b;
 }
 
 * {
@@ -268,6 +275,17 @@ body {
   font-size: 0.9rem;
   color: var(--text-primary);
   line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.notice-alert {
+  background: var(--alert-bg);
+  border: 1px solid var(--alert-border);
+  color: var(--alert-text);
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
 }
 
 .accordion-item {
@@ -325,6 +343,7 @@ body {
 
 .sub-bab-card p, .sub-bab-card ul, .sub-bab-card ol {
   font-size: 0.9rem;
+  color: var(--text-primary);
 }
 
 .sub-bab-card ul, .sub-bab-card ol {
