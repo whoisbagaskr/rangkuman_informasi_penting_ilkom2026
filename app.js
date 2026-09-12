@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     data.forEach((bab) => {
-      /* Render TOC */
+      /* Render TOC Sidebar */
       const tocBabDiv = document.createElement("div");
       tocBabDiv.className = "toc-bab-wrapper";
 
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       tocContainer.appendChild(tocBabDiv);
 
-      /* Render Content + Handling Error Gambar */
+      /* Render Content Area */
       const accordionItem = document.createElement("div");
       accordionItem.className = "accordion-item active";
       accordionItem.id = bab.id;
