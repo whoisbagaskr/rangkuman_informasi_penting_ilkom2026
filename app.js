@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tocContainer.innerHTML = "";
     accordionContainer.innerHTML = "";
 
-    if (!data || data.length === 0) {
+    if (data.length === 0) {
       accordionContainer.innerHTML = `
         <div class="welcome-card" style="text-align: center;">
           <h3>⚠️ Hasil Tidak Ditemukan</h3>
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       tocContainer.appendChild(tocBabDiv);
 
-      /* Render Content Area (Materi) */
+      /* Render Content Area */
       const accordionItem = document.createElement("div");
       accordionItem.className = "accordion-item active";
       accordionItem.id = bab.id;
@@ -58,10 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
           <div>${sub.isiTeks}</div>
           ${
             sub.gambar
-              ? `<img src="${sub.gambar}" alt="${sub.judul}" class="sub-bab-img" loading="lazy" onerror="this.onerror=null; this.style.display='none';">
+              ? `<img src="${sub.gambar}" alt="${sub.judul}" class="sub-bab-img" loading="lazy" onerror="this.onerror=null; this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';">
                  <div class="img-caption">${sub.captionGambar || ""}</div>`
               : ""
           }
+          <div class="tag-container">
+            ${bab.kataKunci.map((tag) => `<span class="tag-item">#${tag}</span>`).join("")}
+          </div>
         </article>
       `
         )
@@ -105,7 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
           if (parentAccordion && !parentAccordion.classList.contains("active")) {
             parentAccordion.classList.add("active");
           }
+
           closeSidebar();
+
           const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 75;
           window.scrollTo({ top: offsetPosition, behavior: "smooth" });
 
@@ -121,12 +126,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const query = e.target.value.toLowerCase().trim();
     searchClear.style.display = query.length > 0 ? "block" : "none";
 
-    const filteredData = window.contentData
+    const filteredData = contentData
       .map((bab) => {
         const isBabMatch =
           bab.judulBab.toLowerCase().includes(query) ||
           bab.deskripsi.toLowerCase().includes(query) ||
-          (bab.kataKunci && bab.kataKunci.some((tag) => tag.toLowerCase().includes(query)));
+          bab.kataKunci.some((tag) => tag.toLowerCase().includes(query));
 
         const matchingSubBab = bab.subBab.filter(
           (sub) =>
@@ -150,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
   searchClear.addEventListener("click", () => {
     searchInput.value = "";
     searchClear.style.display = "none";
-    renderApp(window.contentData);
+    renderApp(contentData);
   });
 
   window.addEventListener("scroll", () => {
@@ -159,7 +164,6 @@ document.addEventListener("DOMContentLoaded", () => {
     readingProgressBar.style.width = (winScroll / height) * 100 + "%";
   });
 
-  /* Theme Setup */
   const savedTheme = localStorage.getItem("theme") || "dark";
   document.documentElement.setAttribute("data-theme", savedTheme);
   updateThemeUI(savedTheme);
@@ -193,18 +197,5 @@ document.addEventListener("DOMContentLoaded", () => {
   if (sidebarClose) sidebarClose.addEventListener("click", closeSidebar);
   if (sidebarOverlay) sidebarOverlay.addEventListener("click", closeSidebar);
 
-  /* PENGAMAN ERROR (Try-Catch) */
-  try {
-    if (typeof window.contentData === "undefined") {
-      throw new Error("File content.js gagal dimuat! Pastikan file sudah ter-upload di GitHub dengan nama 'content.js' (semua huruf kecil).");
-    }
-    renderApp(window.contentData);
-  } catch (error) {
-    accordionContainer.innerHTML = `
-      <div class="welcome-card" style="border: 2px solid #ef4444; background: #fef2f2; color: #991b1b;">
-        <h3 style="color: #dc2626;">❌ ERROR: Data Materi Gagal Dimuat</h3>
-        <p style="margin-top: 10px; font-weight: 600;">${error.message}</p>
-        <p style="margin-top: 10px; font-size: 0.85rem;">Cara perbaiki: Cek kembali apakah isi file content.js kamu sudah ter-copy sampai habis (jangan sampai kurung tutup di paling bawah hilang).</p>
-      </div>`;
-  }
+  renderApp(contentData);
 });
