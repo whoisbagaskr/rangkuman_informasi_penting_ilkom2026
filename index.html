@@ -1,263 +1,89 @@
 <!DOCTYPE html>
-<html data-theme="dark" lang="id">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="Rangkuman interaktif MABA Ilmu Komunikasi UT &mdash; Tuton, kalender, RAT, glosarium, dan sistem belajar." name="description"/>
-  <title>
-   ILKOM MABA 2026 &mdash; Study Hub 🎓
-  </title>
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-  <link href="style.css" rel="stylesheet"/>
- </head>
- <body>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RANGKUMAN KHUSUS MABA ILMU KOMUNIKASI 2026 (SEMESTER 1)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
   <div id="reading-progress-container">
-   <div id="reading-progress-bar">
-   </div>
+    <div id="reading-progress-bar"></div>
   </div>
+
+  <!-- Header Navbar -->
   <header class="app-header">
-   <div class="header-container">
-    <button aria-label="Buka menu" class="btn-icon" id="sidebar-toggle">
-     ☰
-     <span>
-      Menu 📚
-     </span>
-    </button>
-    <div class="brand">
-     <span class="brand-badge">
-      ILKOM 2026
-     </span>
-     <h1>
-      Study Hub MABA 🎓✨
-     </h1>
-    </div>
-    <div class="header-actions">
-     <button class="btn-icon" id="focus-toggle">
-      🎯
-      <span>
-       Fokus
-      </span>
-     </button>
-     <button class="btn-theme" id="theme-toggle">
-      <span class="theme-icon">
-       🌙
-      </span>
-      <span class="theme-text">
-       Gelap
-      </span>
-     </button>
-    </div>
-   </div>
-  </header>
-  <div class="app-layout">
-   <aside class="sidebar" id="sidebar">
-    <div class="sidebar-title-row">
-     <h2>
-      📌 Misi Belajar
-     </h2>
-     <button class="btn-close-sidebar" id="sidebar-close">
-      &times;
-     </button>
-    </div>
-    <div class="search-box">
-     <span class="search-icon">
-      &telrec;
-     </span>
-     <input autocomplete="off" id="search-input" placeholder="🔍 Cari Tuton, RAT, UAS..."/>
-     <button class="btn-clear" id="search-clear">
-      &times;
-     </button>
-    </div>
-    <div class="quick-panel">
-     <button data-action="quiz">
-      🧠 Quiz acak
-     </button>
-     <button data-action="glossary">
-      📖 Glosarium
-     </button>
-     <button data-action="checklist">
-      ✅ Checklist
-     </button>
-    </div>
-    <nav class="toc-container" id="toc-container">
-    </nav>
-   </aside>
-   <div class="sidebar-overlay" id="sidebar-overlay">
-   </div>
-   <main class="main-content">
-    <section class="hero-card">
-     <div>
-      <span class="slogan-badge">
-       🚀 BELAJAR SANTAI, TAPI JANGAN KETINGGALAN DEADLINE
-      </span>
-      <h2>
-       Semua info penting UT kamu, sekarang dibuat lebih hidup. 🔥
-      </h2>
-      <p>
-       Rangkuman ini dibangun dari dokumen terbaru: sistem Tuton, tugas, kalender 8 sesi, RAT 6 mata kuliah, cara belajar 2 jam, hacks, skenario darurat, sampai glosarium.
-      </p>
-      <div class="hero-meta">
-       <span>
-        🗓️ Update:
-        <b id="last-update">
-        </b>
-       </span>
-       <span>
-        📚
-        <b>
-         8 sesi
-        </b>
-       </span>
-       <span>
-        🎓
-        <b>
-         6 matkul
-        </b>
-       </span>
+    <div class="header-container">
+      <button id="sidebar-toggle" class="btn-icon" aria-label="Buka Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <span>Menu 📚</span>
+      </button>
+
+      <div class="brand">
+        <span class="brand-badge">ILKOM 2026</span>
+        <h1>RANGKUMAN MABA ILKOM 2026 🎓✨</h1>
       </div>
-     </div>
-     <div class="hero-orb">
-      📖
-      <small>
-       LET'S
-       <br/>
-       STUDY!
-      </small>
-     </div>
-    </section>
-    <section class="dashboard-grid">
-     <div class="dash-card">
-      <span>
-       🔥 Fokus utama
-      </span>
-      <b>
-       Presensi + Diskusi + Tugas
-      </b>
-      <small>
-       Jangan sampai satu terlewat.
-      </small>
-     </div>
-     <div class="dash-card">
-      <span>
-       ☠️ Ingat
-      </span>
-      <b>
-       UAS minimal 30%
-      </b>
-      <small>
-       Menurut aturan di dokumen sumber.
-      </small>
-     </div>
-     <div class="dash-card">
-      <span>
-       🧠 Mode belajar
-      </span>
-      <b>
-       120 menit / hari
-      </b>
-      <small>
-       4 siklus + jeda.
-      </small>
-     </div>
-    </section>
-    <section class="welcome-card">
-     <div class="update-pill">
-      🆕 MASTER UPDATE
-     </div>
-     <h3>
-      Yang berubah dari versi beta
-     </h3>
-     <ul class="upgrade-list">
-      <li>
-       ✨ Setiap bab sekarang punya
-       <b>
-        info konteks/update
-       </b>
-       tepat di bawah judul.
-      </li>
-      <li>
-       🟡 Istilah, singkatan, dan kata asing dibuat
-       <b>
-        interaktif
-       </b>
-       : sentuh/klik untuk membuka bubble penjelasan.
-      </li>
-      <li>
-       🧠 Ada
-       <b>
-        quiz acak
-       </b>
-       , checklist yang tersimpan di browser, pencarian, mode fokus, dan progres baca.
-      </li>
-      <li>
-       📅 Kalender dibuat sebagai
-       <b>
-        dashboard misi
-       </b>
-       , bukan sekadar daftar tanggal.
-      </li>
-     </ul>
-    </section>
-    <section class="accordion-wrapper" id="accordion-container">
-    </section>
-   </main>
-  </div>
-  <div aria-live="polite" class="term-popover" id="term-popover" role="dialog">
-   <button id="term-close">
-    &times;
-   </button>
-   <div class="term-label">
-    ISTILAH
-   </div>
-   <h4 id="term-title">
-   </h4>
-   <strong id="term-expansion">
-   </strong>
-   <p id="term-definition">
-   </p>
-  </div>
-  <div class="modal" id="quiz-modal">
-   <div class="modal-card">
-    <button class="modal-close" data-close="quiz-modal">
-     &times;
-    </button>
-    <span class="slogan-badge">
-     🧠 QUICK QUIZ
-    </span>
-    <h3 id="quiz-question">
-    </h3>
-    <div id="quiz-options">
+
+      <button id="theme-toggle" class="btn-theme">
+        <span class="theme-icon">🌙</span>
+        <span class="theme-text">Gelap</span>
+      </button>
     </div>
-    <p id="quiz-feedback">
-    </p>
-    <button class="primary-btn" id="quiz-next">
-     Soal berikutnya &rarr;
-    </button>
-   </div>
+  </header>
+
+  <!-- Layout Utama (2 Kolom Layout) -->
+  <div class="app-layout">
+    
+    <!-- Sidebar Drawer (Search & TOC) -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title-row">
+          <h2>📌 DAFTAR ISI MATERI</h2>
+          <button id="sidebar-close" class="btn-close-sidebar">&times;</button>
+        </div>
+        <div class="search-box">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="search-input" placeholder="🔍 Cari kata kunci (cth: Tuton, RAT, Sanksi)..." autocomplete="off">
+          <button id="search-clear" class="btn-clear">&times;</button>
+        </div>
+      </div>
+
+      <nav class="toc-container" id="toc-container">
+        <!-- Render otomatis via app.js -->
+      </nav>
+    </aside>
+
+    <!-- Overlay Mobile Navigation -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Content Area (Kanan) -->
+    <main class="main-content">
+      <div class="welcome-card">
+        <div class="slogan-badge">🚀 HAPPY READ AND LEARN :) 📖✨</div>
+        <h2>INFORMASI PENTING GRUP WA ILKOM YAHUT 2026 + RANGKUMAN RAT, SAT & RPS 📜⚡</h2>
+        <p class="welcome-desc">
+          <b>BUAT YANG GA SEMPET BACA SATU-SATU CHAT WA ATAU INFORMASI TERPECAH BELAH!</b><br>
+          <i>(Udah dirangkumin sekalian dari Chat Grup WA + Dokumen Resmi RAT, SAT, & RPS 6 Matkul. Tinggal masukkan kata kunci di pencarian!)</i>
+        </p>
+        <div class="notice-alert">
+          ⚠️ <b>CATATAN PENTING:</b> Panduan & kalender ini <b>HANYA EFEKTIF BERLAKU UNTUK SEMESTER 1 (Semester Ganjil 2026)</b>!
+        </div>
+      </div>
+
+      <!-- Container Tempat Materi Pembelajaran -->
+      <section class="accordion-wrapper" id="accordion-container">
+        <!-- Content di-render dari content.js -->
+      </section>
+    </main>
+
   </div>
-  <div class="modal" id="checklist-modal">
-   <div class="modal-card">
-    <button class="modal-close" data-close="checklist-modal">
-     &times;
-    </button>
-    <span class="slogan-badge">
-     ✅ WEEKLY CHECKLIST
-    </span>
-    <h3>
-     Checklist yang bisa kamu centang
-    </h3>
-    <div id="checklist">
-    </div>
-    <button class="secondary-btn" id="reset-checklist">
-     Reset checklist
-    </button>
-   </div>
-  </div>
-  <script src="content.js">
-  </script>
-  <script src="app.js">
-  </script>
- </body>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
 </html>
