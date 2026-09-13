@@ -10,13 +10,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="reading-progress-container"><div id="reading-progress-bar"></div></div>
 
-  <!-- Reading Progress Bar -->
-  <div id="reading-progress-container">
-    <div id="reading-progress-bar"></div>
-  </div>
-
-  <!-- Header Navbar -->
   <header class="app-header">
     <div class="header-container">
       <button id="sidebar-toggle" class="btn-icon" aria-label="Buka Menu">
@@ -36,10 +31,7 @@
     </div>
   </header>
 
-  <!-- Layout Utama (2 Kolom Layout) -->
   <div class="app-layout">
-    
-    <!-- Sidebar Drawer (Search & TOC) -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <div class="sidebar-title-row">
@@ -48,20 +40,15 @@
         </div>
         <div class="search-box">
           <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input type="text" id="search-input" placeholder="🔍 Cari kata kunci (cth: Tuton, RAT, Sanksi)..." autocomplete="off">
+          <input type="text" id="search-input" placeholder="🔍 Cari kata kunci (cth: Tuton, RAT)..." autocomplete="off">
           <button id="search-clear" class="btn-clear">&times;</button>
         </div>
       </div>
-
-      <nav class="toc-container" id="toc-container">
-        <!-- Render otomatis via app.js -->
-      </nav>
+      <nav class="toc-container" id="toc-container"></nav>
     </aside>
 
-    <!-- Overlay Mobile Navigation -->
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-    <!-- Content Area (Kanan) -->
     <main class="main-content">
       <div class="welcome-card">
         <div class="slogan-badge">🚀 HAPPY READ AND LEARN :) 📖✨</div>
@@ -75,12 +62,8 @@
         </div>
       </div>
 
-      <!-- Container Tempat Materi Pembelajaran -->
-      <section class="accordion-wrapper" id="accordion-container">
-        <!-- Content di-render dari content.js -->
-      </section>
+      <section class="accordion-wrapper" id="accordion-container"></section>
     </main>
-
   </div>
 
   <script src="content.js"></script>
