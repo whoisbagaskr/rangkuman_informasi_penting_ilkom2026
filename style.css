@@ -1,3 +1,4 @@
+/* Mode Gelap (Default) */
 :root[data-theme="dark"] {
   --bg-primary: #0f172a;
   --bg-secondary: #1e293b;
@@ -11,22 +12,26 @@
   --alert-bg: rgba(239, 68, 68, 0.15);
   --alert-border: #ef4444;
   --alert-text: #fca5a5;
+  --tooltip-bg: #f8fafc;
+  --tooltip-text: #0f172a;
 }
 
-/* Mode Terang dengan kontras tulisan ekstra gelap */
+/* Mode Terang (Tulisan Super Gelap) */
 :root[data-theme="light"] {
   --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
   --bg-glass: rgba(255, 255, 255, 0.95);
   --border-color: rgba(0, 0, 0, 0.12);
-  --text-primary: #020617; /* Sangat pekat & tegas */
-  --text-secondary: #334155; /* Gelap kontras */
+  --text-primary: #000000; /* Sangat Pekat / Hitam */
+  --text-secondary: #1f2937; /* Hitam keabuan tua */
   --accent-color: #0284c7;
   --accent-light: rgba(2, 132, 199, 0.12);
   --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   --alert-bg: #fef2f2;
   --alert-border: #dc2626;
   --alert-text: #991b1b;
+  --tooltip-bg: #1e293b;
+  --tooltip-text: #f8fafc;
 }
 
 * {
@@ -348,6 +353,67 @@ body {
 
 .sub-bab-card ul, .sub-bab-card ol {
   padding-left: 1.2rem;
+}
+
+/* === INTERACTIVE TOOLTIP === */
+.tooltip {
+  position: relative;
+  cursor: help;
+  color: var(--accent-color);
+  font-weight: 700;
+  text-decoration: underline dotted var(--accent-color);
+  padding: 0 0.2rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.tooltip:hover, .tooltip:active {
+  background: var(--accent-light);
+}
+
+.tooltip::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  text-align: center;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, bottom 0.3s;
+  z-index: 100;
+  text-decoration: none;
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--tooltip-bg) transparent transparent transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, bottom 0.3s;
+  z-index: 100;
+}
+
+/* Trigger pada hover untuk PC, dan trigger active/focus untuk HP */
+.tooltip:hover::after, .tooltip:hover::before,
+.tooltip:active::after, .tooltip:active::before {
+  opacity: 1;
+  visibility: visible;
+  bottom: 140%;
 }
 
 .sub-bab-img {
